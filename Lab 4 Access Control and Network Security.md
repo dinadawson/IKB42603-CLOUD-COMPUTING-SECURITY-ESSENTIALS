@@ -48,7 +48,8 @@ curl -s -o /dev/null -w 'no-creds: %{http_code}\n' http://localhost:8080
 curl -s -u student:'P@ssw0rd!' http://localhost:8080
 ```
 
-`[SCREENSHOT: Task 1 — 401 (no creds) followed by "Authenticated OK" (valid creds)]`
+<img width="609" height="339" alt="dinadawsongnac-dee" src="https://github.com/user-attachments/assets/2bbfcb3b-a91f-4efa-b604-79469703f840" />
+
 
 **Observed result:** A request without credentials was rejected with `401`; the same request with valid credentials (`student` / `P@ssw0rd!`) returned `200 Authenticated OK`.
 
@@ -68,7 +69,8 @@ echo "Code generated: $CODE"
 [ "$CODE" = "$(oathtool --totp -b "$SECRET")" ] && echo 'MFA OK' || echo 'MFA FAILED'
 ```
 
-`[SCREENSHOT: Task 2 — secret + generated code + MFA OK]`
+<img width="537" height="57" alt="dinadawson@mac-dee Lab4  CODE=$(oathtool --totp -b SECRET);  SCODE =" src="https://github.com/user-attachments/assets/2616c053-6beb-4b0d-ab57-3ccf27a81c40" />
+
 
 **Observed result:** A random base32 secret was generated, a valid 6-digit TOTP code was produced from it, and re-validating that code against a freshly generated one returned `MFA OK`.
 
@@ -92,7 +94,8 @@ kubectl auth can-i create deploy -n app --as=$SA
 kubectl auth can-i delete pods -n app --as=$SA
 ```
 
-`[SCREENSHOT: Task 3 — three can-i results: yes / no / no]`
+<img width="551" height="227" alt="dinadawsoniac-dee Lab4 X kubecta create nanespace app" src="https://github.com/user-attachments/assets/f59f7f70-b602-4692-8f33-8d804b288d4b" />
+
 
 **Observed result:** The `dev` service account was permitted to list pods (`yes`) but denied both creating deployments and deleting pods (`no`, `no`).
 
@@ -116,7 +119,8 @@ docker exec web sh -c 'apt-get update -qq && apt-get install -y -qq curl > /dev/
 docker exec app sh -c 'apt-get update -qq && apt-get install -y -qq netcat-openbsd > /dev/null; nc -z -w3 db 6379 && echo REACHABLE'
 ```
 
-`[SCREENSHOT: Task 4 — web→db BLOCKED, app→db REACHABLE]`
+<img width="550" height="270" alt="dinadawson@mac-dee Lab  docker" src="https://github.com/user-attachments/assets/021d399c-36f9-4829-beeb-2c06dd411f74" />
+
 
 **Observed result:** `web` (on `frontend-net` only) could not reach `db` (`BLOCKED`). `app` (connected to both `frontend-net` and `backend-net`) successfully reached `db` (`Connection...succeeded! REACHABLE`).
 
@@ -136,7 +140,8 @@ docker run --rm --cap-add=NET_ADMIN alpine sh -c '\
  iptables -L INPUT -n'
 ```
 
-`[SCREENSHOT: Task 5 — iptables ruleset showing policy DROP + ACCEPT rules]`
+<img width="547" height="160" alt="apk add -q iptables; " src="https://github.com/user-attachments/assets/3c449fb4-083a-431f-8c18-aa013f79084c" />
+
 
 **Observed result:**
 ```
@@ -165,7 +170,8 @@ docker inspect hardened --format 'User={{.Config.User}} ReadOnly={{.HostConfig.R
 docker run --rm aquasec/trivy image --severity HIGH,CRITICAL nginx:alpine | head -20
 ```
 
-`[SCREENSHOT: Task 6 — inspect output (User=1000:1000 ReadOnly=true) + Trivy Report Summary (Total: 7, HIGH: 7, CRITICAL: 0)]`
+[Uploading vi cines cos security tEstinge detestes.tiff…]()
+
 
 **Observed result:** `docker inspect` confirmed the container runs as non-root UID `1000:1000` with a read-only root filesystem. A Trivy scan of `nginx:alpine` reported 7 HIGH-severity and 0 CRITICAL vulnerabilities.
 
