@@ -47,7 +47,8 @@ openssl dgst -sha256 -sign private.pem -out record.sig record.txt
 openssl dgst -sha256 -verify public.pem -signature record.sig record.txt
 ```
 
-`[SCREENSHOT: Task 2 — key generation + "Verified OK"]`
+<img width="831" height="331" alt="einasawss" src="https://github.com/user-attachments/assets/9fa88797-72e7-47b3-88fb-2ab92c985229" />
+
 
 **Observed result:** Data encrypted with the public key was successfully decrypted with the private key; the signature verification returned `Verified OK`.
 
@@ -80,7 +81,8 @@ server {
 }
 ```
 
-`[SCREENSHOT: Task 3 — curl over HTTPS returning record.txt content]`
+<img width="495" height="32" alt="dinadawson@mac-dee Lab3 curl -k httpslocalhost8443record txt" src="https://github.com/user-attachments/assets/454617f6-ca16-4013-829f-8556070f4f07" />
+
 
 **Observed result:** `curl -k https://localhost:8443/record.txt` returned the plaintext content of `record.txt` over an HTTPS connection secured by the self-signed certificate.
 
