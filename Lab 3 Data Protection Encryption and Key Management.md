@@ -144,7 +144,8 @@ aws $EP kms schedule-key-deletion --key-id $KEY_A --pending-window-in-days 7
 aws $EP kms decrypt --ciphertext-blob fileb://datakey.enc 2>&1 | head -3
 ```
 
-`[SCREENSHOT: Task 6 — schedule-key-deletion output (KeyState: PendingDeletion) + failed decrypt attempt]`
+<img width="814" height="339" alt="LIs3 X KEY 8-40910046-7636-4897-8286-260168204842" src="https://github.com/user-attachments/assets/d2c482da-5fa2-4bb5-a09e-2ff8c769b1f7" />
+
 
 **Observed result:** Tenant A's key transitioned to `PendingDeletion` state. A subsequent attempt to unwrap tenant A's data key (`datakey.enc`) failed with `NotFoundException: Invalid keyId`.
 
@@ -168,7 +169,8 @@ for line in "login ok" "file read" "export data"; do
 done
 ```
 
-`[SCREENSHOT: Task 7 — two differing SHA-256 hashes + hash chain output]`
+[Uploading dinadawson@mac-dee Lab3  shasum -a 256 record. txi.tiff…]()
+
 
 **Observed result:** `record.txt` and `tampered.txt` produced completely different SHA-256 hashes despite differing by a single appended character. The hash chain produced three entries, each incorporating the hash of the entry before it.
 
