@@ -28,7 +28,8 @@ openssl enc -d -aes-256-cbc -pbkdf2 -in record.enc -out record.dec.txt
 diff record.txt record.dec.txt && echo MATCH
 ```
 
-`[SCREENSHOT: Task 1 — encrypt, gibberish output, decrypt, MATCH]`
+![Uploading image.png…]()
+
 
 **Observed result:** `record.enc` was unreadable ciphertext; decryption using the same passphrase reproduced the original file exactly, confirmed by `MATCH`.
 
