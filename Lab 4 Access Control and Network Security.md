@@ -170,7 +170,7 @@ docker inspect hardened --format 'User={{.Config.User}} ReadOnly={{.HostConfig.R
 docker run --rm aquasec/trivy image --severity HIGH,CRITICAL nginx:alpine | head -20
 ```
 
-[Uploading vi cines cos security tEstinge detestes.tiff…]()
+[vi cines cos security tEstinge detestes.tiff](https://github.com/user-attachments/files/32109031/vi.cines.cos.security.tEstinge.detestes.tiff)
 
 
 
