@@ -173,6 +173,7 @@ docker run --rm aquasec/trivy image --severity HIGH,CRITICAL nginx:alpine | head
 [Uploading vi cines cos security tEstinge detestes.tiff…]()
 
 
+
 **Observed result:** `docker inspect` confirmed the container runs as non-root UID `1000:1000` with a read-only root filesystem. A Trivy scan of `nginx:alpine` reported 7 HIGH-severity and 0 CRITICAL vulnerabilities.
 
 **Security interpretation — three hardening measures applied:**
