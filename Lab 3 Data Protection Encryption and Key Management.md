@@ -109,7 +109,8 @@ KEY_A=ae39f76c-5cf4-45cf-b48a-b96f2c40017f
 aws $EP kms encrypt --key-id $KEY_A --plaintext "$(echo -n 'hello' | base64)" --query CiphertextBlob --output text
 ```
 
-[secretetcess-ley. test.tiff](https://github.com/user-attachments/files/32107817/secretetcess-ley.test.tiff)
+[secretetcess-ley. test.tiff](https://github.com/user-attachments/files/32108134/secretetcess-ley.test.tiff)
+
 
 
 **Observed result:** A customer master key (CMK) was created with `KeyId: ae39f76c-5cf4-45cf-b48a-b96f2c40017f`, and a small plaintext value was successfully encrypted directly by KMS.
@@ -172,7 +173,7 @@ for line in "login ok" "file read" "export data"; do
 done
 ```
 
-[dinadawson@mac-dee Lab3  shasum -a 256 record. txi.tiff](https://github.com/user-attachments/files/32107892/dinadawson%40mac-dee.Lab3.shasum.-a.256.record.txi.tiff)
+[dinadawson@mac-dee Lab3  shasum -a 256 record. txi.tiff](https://github.com/user-attachments/files/32108086/dinadawson%40mac-dee.Lab3.shasum.-a.256.record.txi.tiff)
 
 
 
