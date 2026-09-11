@@ -42,7 +42,8 @@ cat > auth.log <<'EOF'
 EOF
 ```
 
-`[SCREENSHOT: Task 1 — cat auth.log output]`
+<img width="643" height="302" alt="dinadswson@ac-dee Labs Epa--end0o nt-urlehttolocalhost4566" src="https://github.com/user-attachments/assets/a0c7503d-1ad9-47cc-870f-07b0929c7737" />
+
 
 **Observed result:** A 7-line authentication log was created, simulating a legitimate login (`ahmad`) alongside a suspicious pattern from a single IP (`203.0.113.9`): four failed login attempts, followed by a successful login, followed by a large data export.
 
@@ -61,7 +62,8 @@ aws $EP logs get-log-events --log-group-name /ccse/app --log-stream-name auth \
  --query 'events[].message' --output text
 ```
 
-`[SCREENSHOT: Task 2 — get-log-events read-back showing all 7 log lines]`
+<img width="1053" height="451" alt="Screenshot 2026-09-10 at 2 24 05 PM" src="https://github.com/user-attachments/assets/f975fc9f-820f-49c5-891c-343dda164b0e" />
+
 
 **Observed result:** All 7 log lines were successfully shipped to the centralised CloudWatch Logs store and read back intact.
 
@@ -74,7 +76,8 @@ aws $EP logs get-log-events --log-group-name /ccse/app --log-stream-name auth \
 grep LOGIN_FAIL auth.log | awk '{print $4, $5}' | sort | uniq -c
 ```
 
-`[SCREENSHOT: Task 3 — 4 ip=203.0.113.9]`
+<img width="702" height="30" alt="Screenshot 2026-09-10 at 2 24 52 PM" src="https://github.com/user-attachments/assets/58fd082d-2024-43e4-8941-16ab63e5af86" />
+
 
 **Observed result:** 4 failed login attempts were identified, all originating from the same IP address, `203.0.113.9`.
 
@@ -105,7 +108,8 @@ echo "Tampered final hash:"
 echo "$PREV"
 ```
 
-`[SCREENSHOT: Task 4 — original vs tampered final hash, showing they differ]`
+<img width="506" height="147" alt="2011=4 authooin sed s Original final hash" src="https://github.com/user-attachments/assets/8fbd794e-54a5-4979-b3ad-b2922961ac9c" />
+
 
 **Observed result:**
 - Original final hash: `ababa787b4bf524d9daddca8c48e4909fc105769a6f17574f42cefe8f81233cf`
@@ -128,7 +132,8 @@ if [ "$FAILS" -ge 3 ] && [ "$SUCCESS" -ge 1 ] && [ "$EXPORT" -ge 1 ]; then
 fi
 ```
 
-`[SCREENSHOT: Task 5 — fails=4 success=1 export=1 + ALERT output]`
+<img width="562" height="289" alt="il -1 auth chain  sed &#39;s  1" src="https://github.com/user-attachments/assets/c754a189-54f7-4e2b-a70c-d8ea9ff88738" />
+
 
 **Observed result:** `IP=203.0.113.9 fails=4 success=1 export=1`, triggering `ALERT: probable brute-force -> compromise -> data exfiltration`.
 
@@ -146,7 +151,8 @@ shasum -a 256 evidence_*.log > evidence.sha256
 cat evidence.sha256
 ```
 
-`[SCREENSHOT: Task 6 — DROP rule for 203.0.113.9 + evidence.sha256 content]`
+<img width="716" height="290" alt="dinadawson@nac-dee Lab5  IP-283 0 113 9" src="https://github.com/user-attachments/assets/03d74c47-8e96-40a3-a4cb-a821cc6ca6be" />
+
 
 **Observed result:**
 - **Contain:** A firewall rule was added dropping all inbound traffic from `203.0.113.9`.
